@@ -4,4 +4,5 @@ import com.ashref.userservice.dto.UserDTO;
 
 public interface UserService {
 	public UserDTO addUser(UserDTO userDTO);
+	public UserDTO getUserById(Long id);
 }
