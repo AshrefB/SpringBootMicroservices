@@ -1,8 +1,11 @@
 package com.ashref.userservice.services.jpa;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
 import com.ashref.userservice.dto.UserDTO;
@@ -29,6 +32,14 @@ public class UserServiceImp implements UserService {
 	public UserDTO getUserById(Long id) {
 		User user = userRepository.findById(id).orElseThrow(() -> new NoSuchElementException("No user found with ID:"+id));
 		return mapper.map(user, UserDTO.class);
+	}
+
+	@Override
+	public List<UserDTO> getAllUsers() {
+		List<User> users = new ArrayList<>();
+		userRepository.findAll().forEach(users::add);
+		List<UserDTO> usersDTO = mapper.map(users, new TypeToken<List<UserDTO>>(){}.getType());
+		return usersDTO;
 	}
 
 }

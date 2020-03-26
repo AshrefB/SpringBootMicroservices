@@ -1,5 +1,7 @@
 package com.ashref.userservice.controllers;
 
+import java.util.List;
+
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +35,11 @@ public class UserController {
 	@GetMapping("/{id}")
 	public UserDTO getUserBy(@PathVariable Long id) {
 		return userService.getUserById(id);
+	}
+	
+	@GetMapping("/all")
+	public List<UserDTO> getAllUsers() {
+		return userService.getAllUsers();
 	}
 	
 }
