@@ -1,5 +1,8 @@
 package com.ashref.userservice.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -18,4 +21,5 @@ public class UserDTO {
 	private String email;
 	@Pattern(regexp = "$[0-9]{6-8}^")
 	private String password;
+	private List<AlbumDTO> albums = new ArrayList<>();
 }
