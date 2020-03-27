@@ -38,8 +38,8 @@ public class UserController {
 	}
 	
 	@GetMapping("/all")
-	public List<UserDTO> getAllUsers() {
-		return userService.getAllUsers();
+	public List<UserDTO> getAllUsersWithAlbums() {
+		return userService.getAllUsersWithAlbums();
 	}
 	
 }
